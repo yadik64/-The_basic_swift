@@ -2,11 +2,7 @@ import UIKit
 
 // Функция определяет четное число или нет. Возвращает true если число четное.
 func evenOrOdd(number: Int) -> Bool {
-    if number % 2 == 0 {
-        return true
-    } else {
-        return false
-    }
+    return number % 2 == 0
 }
 
 // Функция определяет делится ли число на 3 без остатка. Возвращает true если делится на 3 без остатка.
