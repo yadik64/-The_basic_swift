@@ -7,7 +7,7 @@ protocol Car {
     var yearOfIssue: Int { get }
     var numberOfDoors: Int { get }
     var numberOfWheels: Int { get }
-    var transmission: Transmission { get }
+    var transmission: AnyCar.Transmission { get }
     var motorPower: Int { get }
     var engineStateIs: Bool { get set }
     var windowsStateIs: Bool { get set }
@@ -49,12 +49,12 @@ extension ConsolePrintable {
     }
 }
 
-enum Transmission {
-    case manual
-    case auto
-}
-
 class AnyCar: Car, ConsolePrintable {
+    
+    enum Transmission {
+        case manual
+        case auto
+    }
     
     struct Parameters {
         var brand: String
