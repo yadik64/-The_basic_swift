@@ -48,6 +48,10 @@ struct Students: Gradetable {
 struct Queue<T: Gradetable> {
     private var elements: [T] = []
     
+    var count: Int {
+        return self.elements.count
+    }
+    
     var isEmpty: Bool {
         return elements.count == 0
     }
@@ -57,19 +61,14 @@ struct Queue<T: Gradetable> {
     }
     
     mutating func dequeue() -> T? {
-        if self.elements.isEmpty {
+        guard !self.elements.isEmpty else {
             return nil
-        } else {
-            return self.elements.removeFirst()
         }
+        return self.elements.removeFirst()
     }
     
     func peek() -> T {
         return self.elements[0]
-    }
-    
-    func count() -> Int {
-        return self.elements.count
     }
     
     subscript(element: Int) -> T? {
@@ -116,7 +115,7 @@ queueStudent.enqueue(Students(name: "Joey", surName: "Ramone", grades: [3,5,4,5]
 queueStudent.enqueue(Students(name: "Brian", surName: "Johnson", grades: []))
 queueStudent.enqueue(Students(name: "James", surName: "Hetfield", grades: [4,5,5,5,3,4]))
 queueStudent.enqueue(Students(name: "Ozzy", surName: "Osbourne", grades: [2,2,4,3,3,4]))
-queueStudent.count()
+queueStudent.count
 queueStudent[4]
 queueStudent.avereageGradesJournal()
 queueStudent.sortedByProgress(by: <)
@@ -124,4 +123,4 @@ queueStudent.sortedByProgress(by: >)
 queueStudent.isEmpty
 queueStudent.peek()
 queueStudent.dequeue()
-queueStudent.count()
+queueStudent.count
